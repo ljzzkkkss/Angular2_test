@@ -35,13 +35,14 @@
     "@angular/router": "~3.4.0",
     "@angularclass/conventions-loader": "^1.0.2",
     "angular-in-memory-web-api": "~0.2.1",
+    "angular2-websocket": "^0.9.0",
+    "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "immutable": "^3.8.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.2",
     "ts-helpers": "^1.1.2",
-    "zone.js": "^0.7.4",
-    "angular2-websocket": "^0.9.0"
+    "zone.js": "^0.7.4"
   },
   "devDependencies": {
     "@ngtools/webpack": "^1.2.1",
