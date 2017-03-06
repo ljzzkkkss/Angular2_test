@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 
 
 
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Hero } from '../hero/hero';
+import {HeroService} from '../service/hero.service';
 
 @Component({
   moduleId: module.id + '',

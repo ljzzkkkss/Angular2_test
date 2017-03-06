@@ -1,11 +1,12 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent }   from './dashboard.component';
-import { HeroesComponent }      from './heroes.component';
-import { HeroDetailComponent }  from './hero-detail.component';
-import { WebSocketComponent }  from './websocket.component';
-import { SwiperComponent  } from './swiper.component';
+import {DashboardComponent} from "./dashboard/dashboard.component";
+import {HeroDetailComponent} from "./herodetail/hero-detail.component";
+import {HeroesComponent} from "./hero/heroes.component";
+import {WebSocketComponent} from "./websocket/websocket.component";
+import {SwiperComponent} from "./swiper/swiper.component";
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
