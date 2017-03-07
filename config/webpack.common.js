@@ -123,13 +123,7 @@ module.exports = function (options) {
          */
         {
           test: /\.css$/,
-          exclude: [ helpers.root('styles.css') ],
-          use: ['to-string-loader', 'css-loader?minimize']
-        },
-        {
-          test: /\.css$/,
-          include: [ helpers.root('styles.css') ],
-          use: ['style-loader', 'css-loader?minimize']
+          use: ['to-string-loader','style-loader', 'css-loader?minimize']
         },
 
         /* Raw loader support for *.html
