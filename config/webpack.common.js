@@ -234,6 +234,7 @@ module.exports = function (options) {
         template: 'src/index.html',
         title: METADATA.title,
         chunksSortMode: 'dependency',
+        favicon:'src/favicon.ico',
         metadata: METADATA,
         inject: 'head'
       }),
