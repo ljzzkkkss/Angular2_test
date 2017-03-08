@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { AppComponent } from './navbar/app.component';
 describe('App:Angular2Test', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({ declarations: [AppComponent]});

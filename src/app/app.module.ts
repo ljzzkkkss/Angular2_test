@@ -11,7 +11,7 @@ import { SwiperConfigInterface } from 'angular2-swiper-wrapper';
 
 import './rxjs-extensions';
 
-import {AppComponent} from "./app.component";
+import {AppComponent} from "./navbar/app.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {WebSocketComponent} from "./websocket/websocket.component";
 import {HeroDetailComponent} from "./herodetail/hero-detail.component";
@@ -20,8 +20,6 @@ import {HeroSearchComponent} from "./herosearch/hero-search.component";
 import {HeroService} from "./service/hero.service";
 import {SwiperComponent} from "./swiper/swiper.component";
 import {AppRoutingModule} from "./app-routing.module";
-require('!style-loader!css-loader!../css/styles.css');
-require('!style-loader!css-loader!../css/bootstrap.css');
 
 
 
