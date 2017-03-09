@@ -10,6 +10,9 @@ import { SwiperModule } from 'angular2-swiper-wrapper';
 import { SwiperConfigInterface } from 'angular2-swiper-wrapper';
 
 import './rxjs-extensions';
+//bootstrap
+import './js/jquery.2.1.1.min.js';
+import './js/bootstrap.min.js';
 
 import {AppComponent} from "./navbar/app.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
