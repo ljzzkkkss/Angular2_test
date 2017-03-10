@@ -13,7 +13,8 @@ const AssetsPlugin = require('assets-webpack-plugin');
 const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 // const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 // const HtmlElementsPlugin = require('./html-elements-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -57,6 +58,7 @@ module.exports = function (options) {
     entry: {
 
       'polyfills': './src/polyfills.browser.ts',
+      'twbs':      'bootstrap-loader',
       'vendor':    './src/vendor.browser.ts',
       'main':      './src/main.ts'
     },
@@ -124,6 +126,26 @@ module.exports = function (options) {
         {
           test: /\.css$/,
           use: ['to-string-loader','style-loader', 'css-loader?minimize']
+        },
+
+        {
+          test: /\.scss$/,
+          use: ['raw-loader', 'sass-loader']
+        },
+        /*
+         * Bootstrap 4 loader
+         */
+        {
+          test: /bootstrap\/dist\/js\/umd\//,
+          use: 'imports-loader?jQuery=jquery'
+        },
+        {
+          test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: "url-loader?limit=10000&mimetype=application/font-woff"
+        },
+        {
+          test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: "file-loader"
         },
 
         /* Raw loader support for *.html
@@ -207,6 +229,28 @@ module.exports = function (options) {
           // your Angular Async Route paths relative to this root directory
         }
       ),
+
+      /*
+       * provide bootstrapjs
+       */
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery",
+        Tether: "tether",
+        "window.Tether": "tether",
+        Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
+        Alert: "exports-loader?Alert!bootstrap/js/dist/alert",
+        Button: "exports-loader?Button!bootstrap/js/dist/button",
+        Carousel: "exports-loader?Carousel!bootstrap/js/dist/carousel",
+        Collapse: "exports-loader?Collapse!bootstrap/js/dist/collapse",
+        Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
+        Modal: "exports-loader?Modal!bootstrap/js/dist/modal",
+        Popover: "exports-loader?Popover!bootstrap/js/dist/popover",
+        Scrollspy: "exports-loader?Scrollspy!bootstrap/js/dist/scrollspy",
+        Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
+        Util: "exports-loader?Util!bootstrap/js/dist/util"
+      }),
 
       /*
        * Plugin: CopyWebpackPlugin
